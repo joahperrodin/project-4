@@ -1,6 +1,4 @@
-/**
- * Gallery Items in JSON format
- */
+/* Gallery Items in JSON format */
 
 var galleryItems = [{
   type: "image",
@@ -117,11 +115,9 @@ var galleryItems = [{
 
 
 
-/**
- * Assemble gallery and zoom element
- */
+/* Create the gallery and zoom element */
 
-// Assemble the gallery from JSON data
+// Create the gallery from JSON data above
 var galleryHTML = '<ul class="gallery">';
 $.each(galleryItems, function(index, item){
   galleryHTML += '<li class="gallery-item active ' + item.type + '">';
@@ -130,7 +126,7 @@ $.each(galleryItems, function(index, item){
   galleryHTML += '</a>';
   galleryHTML += '</li>';
 
-  // Preload target images as the gallery is built
+  // Preload target images as gallery is contructed
   if (item.type === "image")
   {
     $('<img/>')[0].src = item.location;
@@ -138,7 +134,7 @@ $.each(galleryItems, function(index, item){
 });
   galleryHTML += '</ul>';
 
-// Assemble the zoom Lightbox
+// Create the zoom Lightbox
 var zoomHTML  = '<div class="zoom">';
     zoomHTML += ' <div class="zoom-wrap">';
     zoomHTML += '   <a href="#" class="zoom-nav zoom-prev"></a>';
@@ -170,14 +166,12 @@ var totalActive;
 
 
 
-/**
- * Search Function
- */
+/* Search Function */
 
 // Search function sets the "active" class to filtered items and hides the rest
 $('#search').keyup(function(){
 
-  // Loop through all gallery items and search the title image attibute
+  // Loop through gallery and search title image attribute
   var searchWord = $('#search').val().toLowerCase();
   $('.gallery-item').each(function(index, item){
       var searchTitle  = $(item).children('a').children('img').attr('title').toLowerCase();
@@ -201,9 +195,7 @@ $('#search').keyup(function(){
 
 
 
-/**
- * Zoom function
- */
+/* Zoom function */
 
 function loadZoomContent(item){
 
@@ -251,11 +243,9 @@ function loadZoomContent(item){
 
 
 
-/**
-* Activate zoom
-*/
+/* Activate zoom */
 
-// Show up the zoom box when clicking on a gallery item
+// Show up the zoom box when clicking on an item
 $(".gallery-item a").click(function(event){
   event.preventDefault();
   $zoomMedia.animate({opacity: 0}, 0);
@@ -266,9 +256,7 @@ $(".gallery-item a").click(function(event){
 
 
 
-/**
-* Deactivate zoom
-*/
+/* Deactivate zoom */
 
 function hideZoom(){
   $imageFrame.attr('src', 'img/media-bg.png');
@@ -282,9 +270,7 @@ $zoom.click(function(){
 
 
 
-/**
-* Prev Next button navigation
-*/
+/* Prev Next button navigation */
 
 $zoomPrev.click(function(){
   if (!$(this).hasClass('zoom-button-hide'))
@@ -304,9 +290,7 @@ $zoomNext.click(function(){
 
 
 
-/**
-* Keyboard navigation and event
-*/
+/* Keyboard navigation and event */
 
 $(document).keydown(function(event){
   if (!$zoomPrev.hasClass('zoom-button-hide') && event.which === 37)

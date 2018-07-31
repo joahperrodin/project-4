@@ -1,6 +1,4 @@
-/**
- * General styling
- */
+/* General styling */
 
  *, *:before, *:after {
    -moz-box-sizing: border-box;
@@ -20,14 +18,27 @@ img {
 
 
 
-/**
- * Header & Search styling
- */
+/* Header & Search styling */
 
 header {
   display: flex;
   background: #fff;
   padding: 2rem;
+}
+
+.footer {
+	min-height: 30px;
+	background: #002a54;
+	text-align: center;
+}
+
+.copyright {
+	letter-spacing: 0.13em;
+	padding: 10px 1em;
+	color: #fff;
+	font-size: .7em;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 input {
@@ -50,9 +61,7 @@ input::-webkit-input-placeholder {
 
 
 
-/**
- * Gallery styling
- */
+/* Gallery styling */
 
 .gallery {
   margin: 0;
@@ -137,9 +146,7 @@ input::-webkit-input-placeholder {
 
 
 
-/**
- * Overlay styling
- */
+/* Overlay styling */
 
 .zoom {
   position: fixed;
